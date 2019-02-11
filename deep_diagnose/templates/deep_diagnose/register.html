@@ -1,0 +1,9 @@
+{% extends 'deep_diagnose/base.html' %}
+{% block body %}
+<div class="register text-center" style="padding-top:15rem;">
+    <form method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

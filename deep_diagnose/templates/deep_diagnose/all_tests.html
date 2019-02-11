@@ -1,0 +1,11 @@
+{% extends 'deep_diagnose/base.html' %}
+{% block body %}
+<div class="tests text-center" style="padding-top:15rem;">
+{% for tests in all_tests %}
+<a href="{% url 'deep_diagnose:tests_detail' pk=tests.pk %}">
+{{ tests.test_name }}
+</a>
+<br>
+{% endfor %}
+</div>
+{% endblock %}

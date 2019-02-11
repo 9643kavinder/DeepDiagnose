@@ -1,0 +1,16 @@
+{% extends 'deep_diagnose/base.html' %}
+{% block body %}
+{% if error_message %}
+<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+<ul></ul>
+{% for companytests in test.companytests_set.all %}
+<li>{{ company.logo.url }}
+    <a href="#">{{ companytests.company_name }}</a>
+    <br>Rs-{{ companytests.cost }}
+    <br>
+
+</li><br><br><br>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'deep_diagnose/base.html' %}
+{% block body %}
+<div class="col-12 testbox text-center" style="padding-top:7rem;">
+    <form method="GET" action="/response" class="form-inline my-2 my-lg-0"0>
+    <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            name="search"
+            value="{{search_term}}">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+</div>
+<div class="testresult text-center">
+
+    {% for polls in polls %}
+    <li><a href="/response1/{{polls}}">{{ polls }}</a></li>
+    {% endfor %}
+
+</div>
+<div class="company_list text-center" style="padding-top:2rem;">
+<ul>
+    {% for company in filter.qs %}
+    <img src="{{company.logo.url }}" width="25%" height="45%">
+    <br>
+    <li><a href="{% url 'deep_diagnose:company_detail' company.id %}">{{company.company_name}}></a><br>
+        {{ company.address_line1 }}
+        <br>
+        {{ company.city }} {{ company.state }}
+        <br><br>
+
+        {% endfor %}
+</ul>
+</div>
+{% endblock %}

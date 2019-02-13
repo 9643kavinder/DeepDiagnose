@@ -9,7 +9,8 @@
 {% for companytests in company.companytests_set.all %}
 <li><a href="#">{{ companytests.tests }}</a>
 <br>Rs-{{ companytests.cost }}
-</li><br><br><br>
+</li>
+ <br><br><br>
 {% endfor %}
 </ul>
 </div>

@@ -192,3 +192,6 @@ class AdminCompanyList(generic.ListView):
     def get_queryset(self):
         return CompanyDetail.objects.all().order_by('company_name')
 
+
+def adminhome(request):
+    return render(request, 'deep_Diagnose/adminhome.html')

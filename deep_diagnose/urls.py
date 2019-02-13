@@ -54,4 +54,6 @@ urlpatterns = [
     url(r'^admin_test_list/$', views.AdminTestList.as_view(), name='admin_test_list'),
 
     url(r'^admin_company_list/$', views.AdminCompanyList.as_view(), name='admin_company_list'),
+
+    path('adminhome/', views.adminhome, name='adminhome'),
 ]

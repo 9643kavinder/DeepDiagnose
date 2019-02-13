@@ -6,7 +6,7 @@ from django.urls import reverse
 class CompanyDetail(models.Model):
     company_name = models.CharField(max_length=250, unique=True)
     email_id = models.EmailField(unique=True)
-    contact_no = models.CharField(max_length=10)
+    contact_no = models.CharField(max_length=12)
     address_line1 = models.CharField(max_length=125)
     city = models.CharField(max_length=125)
     state = models.CharField(max_length=125)
@@ -41,6 +41,7 @@ class CompanyTests(models.Model):
 
 
 class OrderInfo(models.Model):
+    test_name = models.CharField(max_length=125, default='NULL')
     user_name = models.CharField(max_length=125)
     email_id = models.EmailField()
     age = models.CharField(max_length=20)

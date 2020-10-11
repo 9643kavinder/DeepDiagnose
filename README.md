@@ -10,10 +10,21 @@ best prices guaranteed.</br>
 ### Simple Clone This Repo
 
 ```bash
-$git clone [repo_link](https://github.com/9643kavinder/DeepDiagnose.git)
+$git clone https://github.com/9643kavinder/DeepDiagnose.git
 cd DeepDiagnose
 pipenv shell
 pipenv install
 pip install -r requirements.txt
 python manage.py runserver
 ```
+
+## Technologies Used
+* Backend
+  * Django/Python
+  * Postgresql
+ 
+* Frontend
+  * HTML/CSS
+  * Javascript
+  * Bootstrap
+  

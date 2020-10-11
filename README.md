@@ -9,8 +9,11 @@ best prices guaranteed.</br>
 ## Procedure
 ### Simple Clone This Repo
 
-'''bash
+```bash
 $git clone [repo_link](https://github.com/9643kavinder/DeepDiagnose.git)
-npm install
-npm start
-'''
+cd DeepDiagnose
+pipenv shell
+pipenv install
+pip install -r requirements.txt
+python manage.py runserver
+```

@@ -1,2 +1,1 @@
-# Medonsis
-http://deepdiagnostics.herokuapp.com/home/
+#DEEP DIAGNOSE

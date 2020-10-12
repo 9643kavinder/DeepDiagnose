@@ -28,10 +28,10 @@ python manage.py runserver
   * Javascript
   * Bootstrap
   
-<p float="center">
+<p align="center">
   <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/1.png" />
  </p>
- <p float="center">
+ <p align="center">
   <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/2.png"/>
  </p>
 <!-- ![](/readme_ss/1.png) -->

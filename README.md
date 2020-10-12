@@ -36,8 +36,8 @@ python manage.py runserver
 </br>
 </br>
 <p float="left">
-  <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/9.jpg" width="300" height="600"/>
-  <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/10.jpg" width="300" height="600"/>
- <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/11.jpg" width="300" height="600"/>
+  <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/9.jpg" width="310" height="600"/>
+  <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/10.jpg" width="310" height="600"/>
+ <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/11.jpg" width="310" height="600"/>
 </p>
 

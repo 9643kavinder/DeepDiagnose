@@ -36,7 +36,7 @@ python manage.py runserver
 </br>
 </br>
 <p float="left">
-  <img src="/9.png" width="100" />
-  <img src="/10.png" width="100" />
+  <img src="/read_me//9.png" width="100" />
+  <img src="/read_me/10.png" width="100" />
 </p>
 

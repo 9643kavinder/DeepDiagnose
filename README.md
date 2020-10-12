@@ -28,4 +28,15 @@ python manage.py runserver
   * Javascript
   * Bootstrap
   
-![1](/readme_ss/1.png)
+  
+![](/readme_ss/1.png)
+</br>
+</br>
+![](/readme_ss/3.png)
+</br>
+</br>
+<p float="left">
+  <img src="/9.png" width="100" />
+  <img src="/10.png" width="100" />
+</p>
+

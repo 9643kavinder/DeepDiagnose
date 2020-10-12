@@ -28,3 +28,4 @@ python manage.py runserver
   * Javascript
   * Bootstrap
   
+![1](/readme_ss/1.png)

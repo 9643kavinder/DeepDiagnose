@@ -1,21 +1,46 @@
 
 {% extends 'deep_diagnose/base.html' %}
+{% load crispy_forms_tags %}
 {% block body %}
-<div class="login text-center" style="padding-top:15rem;">
-<form method="POST">
-    {% csrf_token %}
-    <p>
-        <label>Username</label>
-        <input type="text" name="username">
-    </p>
-    <p>
-        <label>Password</label>
-        <input type="password" name="password">
-    </p>
-    <button type="submit">Login</button>
-</form>
-</div>
-<a href="{% url 'social:begin' 'google-oauth2' %}"><button class="loginBtn loginBtn--google">
-    Login with Google
+<!--<div class="login text-center" style="padding-top:15rem;">-->
+<!--<form method="POST">-->
+    <!--{% csrf_token %}-->
+    <!--<p>-->
+        <!--<label>Username</label>-->
+        <!--<input type="text" name="username">-->
+    <!--</p>-->
+    <!--<p>-->
+        <!--<label>Password</label>-->
+        <!--<input type="password" name="password">-->
+    <!--</p>-->
+
+    <!--<button type="submit">Login</button>-->
+<!--</form>-->
+    <!--<br>-->
+<!--</div>-->
+<div class="content-section container">
+			<form method="POST">
+				{% csrf_token %}
+				<fieldset class="form-group">
+					<legend class="border-bottom mb-4 pt-4">LOG IN</legend>
+					{{form|crispy}}
+				</fieldset>
+				<div class="form-group">
+					<button class="btn btn-outline-info" type="submit">Log In</button>
+					<small>
+						<a href="{% url 'password_reset' %}">Forgot Password?</a>
+					</small>
+				</div>
+			</form>
+			<div class="border-top pt-3">
+				<small class="text-muted">
+					Need An Account? <a class="ml-2" href="#">Sign Up</a>
+				</small>
+			</div>
+		</div>
+<center>
+<a href="{% url 'social:begin' 'google-oauth2' %}"><button class="loginBtn loginBtn--google btn-secondary">
+    Login with <span style="color:orange;">Google</span>
 </button></a>
-{% endblock %}s
+</center>
+{% endblock %}

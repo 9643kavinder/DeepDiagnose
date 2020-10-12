@@ -1,0 +1,25 @@
+<html>
+
+<body>
+
+<div class="table-responsive-sm pt-5 ml-5" >
+    <table class="table" style="margin-left:15%;">
+
+        <tbody>
+        {% for i in search %}
+        <tr class="row">
+
+            <td class="col-lg-4"><h5>{{i.test_name}}</h5></td>
+            <td class="col-lg-4 btn btn-success btn-sm"> <h5><a style="text-decoration: none; color:white;" href="{% url 'deep_diagnose:tests_detail' pk=i.pk %}">
+                FIND COMPANIES
+            </a></h5></td>
+
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

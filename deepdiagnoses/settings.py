@@ -25,7 +25,7 @@ SECRET_KEY = '$)i6u_$$q6r_)67+hlja$pbqr--_atkrk3vc*q06x^2+vr)2e@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['deepdiagnostics.herokuapp.com']
 
 
 # Application definition
@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'deep_diagnose',
     'django_filters',
     'social_django',
+    'crispy_forms',
+    'django_truncate',
 ]
 
 MIDDLEWARE = [
@@ -50,7 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware'
+    'social_django.middleware.SocialAuthExceptionMiddleware',
+
 ]
 
 ROOT_URLCONF = 'deepdiagnoses.urls'
@@ -68,6 +71,10 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
+                'deep_diagnose.context_processors.basetest1',
+                'deep_diagnose.context_processors.basetest2',
+                'deep_diagnose.context_processors.basetest3',
+                'deep_diagnose.context_processors.cost',
 
             ],
         },
@@ -137,6 +144,7 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "deep_diagnose/static"),
@@ -146,5 +154,13 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '144648309726-u4gmvnevg9vjq2jf28b7m9t0mtasng78.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ujDG6ks6a34GNMzg7S124RXI'
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'deep_diagnose:profile'
+LOGIN_REDIRECT_URL = 'deep_diagnose:find'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'xyz@gmail.com'
+EMAIL_HOST_PASSWORD = '123456789'
 django_heroku.settings(locals())

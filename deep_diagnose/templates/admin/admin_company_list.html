@@ -1,0 +1,29 @@
+{% extends 'deep_diagnose/base1.html' %}
+{% block body %}
+<div class="companies text-center" style="padding-top:5rem;">
+    <div class="table-responsive-sm">
+        <table class="table table-bordered">
+
+            <tbody>
+            {% for company in all_companies %}
+            <tr>
+
+                <td>{{company.company_name}}</td>
+                <td> <form method="POST" action="{% url 'deep_diagnose:company-delete' company.id %}">
+                    {% csrf_token %}<button class="btn" >
+                    delete
+                </button>
+                    <br><br>
+                </form>
+                </td>
+
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br><br>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+
+
+{% extends 'deep_diagnose/base.html' %}
+{% block body %}
+<div class="col-12 testbox text-center" style="padding-top:7rem;">
+    <form method="GET" action="/response" class="form-inline my-2 my-lg-0"0>
+        <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                name="search"
+                value="{{search_term}}">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
+<div class="testresult text-center">
+
+    {% for polls in polls %}
+    <li><a href="/response1/{{polls}}">{{ polls }}</a></li>
+    {% endfor %}
+
+</div>
+<div class="table-responsive-sm">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">SNO</th>
+            <th scope="col">TEST NAME</th>
+            <th scope="col">COMPANIES OFFER THE TEST</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for companytests in category.tests_set.all %}
+        <tr>
+            <th scope="row">{{ companytests.id }}</th>
+            <td>{{ companytests.test_name }}</td>
+
+            <td><a href="{% url 'deep_diagnose:tests_detail' companytests.id %}">FIND</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

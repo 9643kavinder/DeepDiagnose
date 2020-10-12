@@ -1,5 +1,6 @@
 
 from django.db import models
+from django.contrib.auth.models import User
 from django.urls import reverse
 
 
@@ -16,9 +17,21 @@ class CompanyDetail(models.Model):
         return str(self.company_name)
 
 
+class TestCategory(models.Model):
+    category = models.CharField(max_length=125)
+
+    def __str__(self):
+        return str(self.category)
+
+
+class Meta:
+    verbose_name = 'TestCategory'
+    verbose_name_plural = 'TestCategory'
+
+
 class Tests(models.Model):
     test_name = models.CharField(max_length=125)
-    test_details = models.CharField(max_length=250)
+    category = models.ForeignKey(TestCategory, on_delete=models.CASCADE,null=True)
 
     def __str__(self):
         return str(self.test_name)
@@ -41,6 +54,8 @@ class CompanyTests(models.Model):
 
 
 class OrderInfo(models.Model):
+    order_no = models.AutoField(primary_key=True)
+    company_name = models.CharField(max_length=125, default='NULL')
     test_name = models.CharField(max_length=125, default='NULL')
     user_name = models.CharField(max_length=125)
     email_id = models.EmailField()
@@ -57,3 +72,11 @@ class OrderInfo(models.Model):
 class Company(models.Model):
     company = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+
+    def __str__(self):
+        return f'{self.user.username} Profile'

@@ -1,16 +1,76 @@
 {% extends 'deep_diagnose/base.html' %}
-{% block body %}
-{% if error_message %}
-<p><strong>{{ error_message }}</strong></p>
-{% endif %}
-<ul></ul>
-{% for companytests in test.companytests_set.all %}
-<li>{{ company.logo.url }}
-    <a href="#">{{ companytests.company_name }}</a>
-    <br>Rs-{{ companytests.cost }}
-    <br>
+{% block head %}
+<style>
+* {
+  box-sizing: border-box;
+}
 
-</li><br><br><br>
-{% endfor %}
-</ul>
+.header {
+width:58.45%;
+font-size:14%;
+  border: 1px solid grey;
+  padding: 15px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 5px;
+  border: 1px solid grey;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;height=0%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 10%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+</style>
+{% endblock head %}
+{% block body %}
+<div class="company_details text-center" style="padding-top:5rem;">
+    {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+    {% for companytests in test.companytests_set.all %}
+    <div class="header">
+        <h1>{{ companytests.company_name }}</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+            <img src="{{companytests.company_name.logo.url}}" height="50%" width="100%">
+        </div>
+        <div class="col-3" style="padding:35px;">
+            {{ companytests.company_name.address_line1 }}<br>
+            {{ companytests.company_name.city }}<br>
+            {{ companytests.company_name.state }}<br><br><br>
+            Rs-{{ companytests.cost }}
+        </div>
+
+        <div class="col-1" style="padding:45px;">
+            <a href="{% url 'deep_diagnose:ordernow' pk=companytests.id %}">BOOK NOW!</a>
+
+        </div>
+
+    </div><br>
+
+    <br><br>
+    {% endfor %}
+
+</div>
+
+
+
 {% endblock %}

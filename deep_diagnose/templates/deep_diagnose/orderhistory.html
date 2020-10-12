@@ -1,0 +1,62 @@
+{% extends 'deep_diagnose/base.html' %}
+{% block body %}
+<div class="row">
+
+    <div class="col-2" style="padding:35px;">
+        <h3>Order No</h3>
+    </div>
+    <div class="col-3" style="padding:35px;">
+        <h3>Company And Test</h3>
+    </div>
+    <div class="col-3" style="padding:35px;">
+        <h3>Appointment Date</h3>
+    </div>
+    <div class="col-2" style="padding:35px;">
+
+    </div>
+</div>
+
+{% for order in orders %}
+
+
+<div class="row">
+
+    <div class="col-2" style="padding:35px;">
+        {{ order.order_no }}
+    </div>
+    <div class="col-3" style="padding:35px;">
+
+        {{ order.company_name }}
+        <br>
+        {{ order.test_name }}
+
+    </div>
+    <div class="col-3" style="padding:35px;">
+
+        {{ order.suitable_date }}
+        <br>
+        {{ order.suitable_time }}
+
+    </div>
+    <div class="col-1" style="padding:35px;">
+
+        <form name="f1" method="POST" action="{% url 'deep_diagnose:cancel-order' order.pk %}">
+            {% csrf_token %}<button type="submit" class="btn btn-default btn-sm">
+            Cancel
+        </button>
+        </form>
+
+    </div>
+    <div class="col-1" style="padding:35px;">
+
+        <form name="f1" method="POST" action="{% url 'deep_diagnose:update-order' order.pk %}">
+            {% csrf_token %}<button type="submit" class="btn btn-default btn-sm">
+            Update Info
+        </button>
+        </form>
+
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}

@@ -1,16 +1,96 @@
 {% extends 'deep_diagnose/base.html' %}
+{% block javascript %}
+<script>
+    $("#id_username").change(function () {
+      console.log( $(this).val() );
+    });
+  </script>
+<style>
+input[type=text], select {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 60%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+</style>
+{% endblock javascript %}
 {% block body %}
 {% if user.is_authenticated %}
-
-<form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% include 'deep_diagnose/form-template.html' %}
+<form class="form-horizontal" action="" method="post" enctype="multipart/form-data" style="margin-left:40px;">
+    {% for i in x %}
+    <input type="text" name="test_id" value="{{ i.company_name }}" >
+    <br><br>
+    <input type="text" name="test_id" value="{{ i.tests }}">
+    {% endfor %}
+    {% csrf_token %}<br>
+    <label>Order no</label><br>
+    <input type="text" name="orderno" value="{{ orders }}" readonly>
+    <br><br>
+    {% for i in order %}
+    <label>Company name</label><br>
+    <input type="text" name="company_name" value="{{ i.company_name }}" readonly>
+    <br><br>
+    <label>test name</label><br>
+    <input type="text" name="test_name" value="{{ i.tests }}" readonly>
+    <br><br>
+    {% endfor %}
+    <label>Username</label><br>
+    <input type="text" name="username" value="{{ user.username }}" readonly>
+    <br><br>
+    <label>Email</label><br>
+    <input type="text" name="email_id" value="{{ user.email }}" readonly>
+    <br><br>
+    <label>Age</label><br>
+    <input type="text" name="age" value="">
+    <br><br>
+    <label>Address line 1</label><br>
+    <input type="text" name="address_line_1" value="">
+    <br><br>
+    <label>City</label><br>
+    <input type="text" name="city" value="">
+    <br><br>
+    <label>State</label><br>
+    <input type="text" name="state" value="">
+    <br><br>
+    <label>Zip code</label><br>
+    <input type="text" name="zip_code" value="">
+    <br><br>
+    <label>Phone no</label><br>
+    <input type="text" name="phone_no" value="">
+    <br><br>
+    <label>Suitable date</label><br>
+    <input type="text" name="suitable_date" value="">
+    <br><br>
+    <label>Suitable time</label><br>
+    <input type="text" name="suitable_time" value="">
+    <br><br>
     <button type="submit" class="btn btn=success">Submit</button>
 </form>
-    {% else %}
-    <script>
+{% else %}
+<script>
         alert("You Have To Log In First");
         window.location.href = "/login/";
     </script>
-    {% endif %}
-    {% endblock %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'deep_diagnose/base1.html' %}
+{% block body %}
+<div class="table-responsive-sm">
+    <table class="table table-bordered">
+
+        <tbody>
+        {% for tests in all_tests %}
+        <tr>
+            <th scope="row">
+                {{ tests.test_name }}
+            </th>
+            <td><form name="f1" method="POST" action="{% url 'deep_diagnose:test-delete' tests.pk %}">
+                {% csrf_token %}<button type="submit" class="btn btn-default btn-sm">
+                delete
+            </button>
+            </form>﻿</td>
+            <td><form name="f2" method="POST" action="{% url 'deep_diagnose:test-update' tests.pk %}">
+                {% csrf_token %}<button type="submit" class="btn btn-default btn-sm" >
+                update
+            </button>
+            </form></td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br><br>
+
+
+
+<!--<div class="" style="padding-top:3rem;padding-left:7rem;">-->
+    <!--{% for tests in all_tests %}-->
+    <!--<a href="{% url 'deep_diagnose:tests_detail' pk=tests.pk %}">-->
+        <!--{{ tests.test_name }}-->
+    <!--</a>-->
+    <!--<br>-->
+    <!--<form name="f1" method="POST" action="{% url 'deep_diagnose:test-delete' tests.pk %}">-->
+        <!--{% csrf_token %}<button type="submit" class="btn btn-default btn-sm">-->
+       <!--delete-->
+    <!--</button>-->
+    <!--</form>﻿-->
+    <!--<form name="f2" method="POST" action="{% url 'deep_diagnose:test-update' tests.pk %}">-->
+        <!--{% csrf_token %}<button type="submit" class="btn btn-default btn-sm" >-->
+        <!--update-->
+    <!--</button>-->
+    <!--</form>-->
+    <!--<br><br>-->
+    <!--{% endfor %}-->
+<!--</div>-->
+{% endblock %}

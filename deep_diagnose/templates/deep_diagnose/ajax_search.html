@@ -1,0 +1,11 @@
+{% if search.count>0 %}
+
+{% for i in search %}
+
+<li><a href="deep_diagnose/{{i.test_name}}">{{i.test_name}}</a></li>
+{% endfor %}
+
+{% else %}
+<li>Nothing Found :(</li>
+
+{% endif %}

@@ -1,11 +1,26 @@
 {% extends 'deep_diagnose/base.html' %}
 {% block body %}
-<div class="tests text-center" style="padding-top:15rem;">
-{% for tests in all_tests %}
-<a href="{% url 'deep_diagnose:tests_detail' pk=tests.pk %}">
-{{ tests.test_name }}
-</a>
-<br>
-{% endfor %}
+<!--all tests list-->
+<br><br><br>
+
+<div class="table-responsive-sm">
+    <table class="table table-bordered">
+
+        <tbody>
+        {% for tests in all_tests %}
+        <tr>
+            <th scope="row">{{ tests.id }}</th>
+            <td>{{ tests.test_name }}</td>
+            <td> <a href="{% url 'deep_diagnose:tests_detail' pk=tests.pk %}">
+FIND COMPANIES
+            </a></td>
+
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
+
+
 {% endblock %}

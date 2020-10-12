@@ -1,5 +1,11 @@
 {% extends 'deep_diagnose/base1.html' %}
-
+{% block javascript %}
+<script>
+    $("#id_username").change(function () {
+      console.log( $(this).val() );
+    });
+  </script>
+{% endblock javascript %}
 {% block body %}
 <div class ="container-fluid">
 

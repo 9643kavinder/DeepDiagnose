@@ -1,9 +1,27 @@
+
 {% extends 'deep_diagnose/base.html' %}
 {% block body %}
-<div class="companies text-center" style="padding-top:15rem;">
-{% for company in all_companies %}
-<div class="title"><li><a href="{% url 'deep_diagnose:company_detail' company.id %}">{{company.company_name}}</a><br><br>
+
+<br><br><br>
+<div class="table-responsive-sm">
+    <table class="table table-bordered">
+
+        <tbody>
+        {% for company in all_companies %}
+        <tr>
+
+            <td>{{company.company_name}}</a></td>
+            <td><img src="{{ company.logo.url }}" height="200px" weight="300px"></td>
+            <td><a href="{% url 'deep_diagnose:company_detail' company.id %}">FIND</a></td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
-{% endfor %}
-</div>
+
+
+
 {% endblock %}
+
+

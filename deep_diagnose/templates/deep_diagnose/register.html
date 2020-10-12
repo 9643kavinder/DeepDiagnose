@@ -1,9 +1,42 @@
 {% extends 'deep_diagnose/base.html' %}
+{% load crispy_forms_tags %}
+{% block javascript %}
+<script>
+    $("#id_username").change(function () {
+      console.log( $(this).val() );
+    });
+  </script>
+{% endblock javascript %}
 {% block body %}
-<div class="register text-center" style="padding-top:15rem;">
-    <form method="POST">
-        {% csrf_token %} {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
-</div>
+<!--<div class="register text-center container" style="padding-top:15rem;">-->
+    <!--<form method="POST">-->
+        <!--{% csrf_token %}-->
+        <!--<fieldset class="form-group">-->
+					<!--<legend class="border-bottom mb-4 pt-4">REGISTER</legend>-->
+					<!--{{form|crispy}}-->
+				<!--</fieldset>-->
+        <!--<div class="form-group">-->
+					<!--<button class="btn btn-outline-info" type="submit">Register</button>-->
+				<!--</div>-->
+
+        <!--<button type="submit">Submit</button>-->
+    <!--</form>-->
+<!--</div>-->
+<div class="content-section container">
+			<form method="POST">
+				{% csrf_token %}
+				<fieldset class="form-group">
+					<legend class="border-bottom mb-4 pt-4">JOIN TODAY</legend>
+					{{form|crispy}}
+				</fieldset>
+				<div class="form-group">
+					<button class="btn btn-outline-info" type="submit">Sign Up</button>
+				</div>
+			</form>
+			<div class="border-top pt-3">
+				<small class="text-muted">
+					Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+				</small>
+			</div>
+		</div>
 {% endblock %}

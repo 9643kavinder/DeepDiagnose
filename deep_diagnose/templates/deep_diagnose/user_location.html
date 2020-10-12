@@ -3,66 +3,53 @@
 {% block body %}
 <!--<form method="get" action="{% url 'deep_diagnose:result' %}">-->
 <!--&lt;!&ndash;city&ndash;&gt;-->
-    <!--&lt;!&ndash;<input type="text" name="city">&ndash;&gt;-->
-    <!--&lt;!&ndash;state&ndash;&gt;-->
-    <!--&lt;!&ndash;<input type="text" name="state">&ndash;&gt;-->
-    <!--<input type="hidden" name="country" id="countryId" value="IN"/>-->
+<!--&lt;!&ndash;<input type="text" name="city">&ndash;&gt;-->
+<!--&lt;!&ndash;state&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="text" name="state">&ndash;&gt;-->
+<!--<input type="hidden" name="country" id="countryId" value="IN"/>-->
 <!--<select name="state" class="states order-alpha" id="stateId" style="text-transform:uppercase;">-->
-    <!--<option value="">Select State</option>-->
+<!--<option value="">Select State</option>-->
 <!--</select>-->
 <!--<select name="city" class="cities order-alpha" id="cityId" style="text-transform:uppercase;">-->
-    <!--<option value="">Select City</option>-->
+<!--<option value="">Select City</option>-->
 <!--</select>-->
-    <!--<button type="submit">Find</button>-->
+<!--<button type="submit">Find</button>-->
 <!--</form>-->
 <!-- Start Landing Page -->
-    <div class="landing">
-        <div class="home-wrap">
-            <div class="home-inner"></div>
-        </div>
+<div class="landing">
+    <div class="home-wrap">
+        <div class="home-inner"></div>
     </div>
-    <div class="caption text-center">
-        <h1>DEEP DIAGNOSE</h1>
-        <h3>THE ONE STOP POINT FOR ALL THE DIAGNOSTICS.</h3>
-        <a class="btn btn-outline-light btn-lg" href="#about">Get Started</a>
+</div>
+<div class="caption text-center">
+    <h1>DEEP DIAGNOSE</h1>
+    <h3>THE ONE STOP POINT FOR ALL THE DIAGNOSTICS.</h3>
+    <!-- <a class="btn btn-outline-light btn-lg" href="#about">Get Started</a> -->
+</div>
+<!-- Start Search Box -->
+<div class="container" style="background-color:#1ebba3;">
+<div class="row justify-content-center searchbox">
+    <div class="col-12 col-md-10 col-lg-8 text-center">
+        <form method="get" action="{% url 'deep_diagnose:result' %}">
+            <!--city-->
+            <!--<input type="text" name="city">-->
+            <!--state-->
+            <!--<input type="text" name="state">-->
+            {% csrf_token %}
+            <input type ='text' id="search" name="search" class="states order-alpha text-center" placeholder="Enter Testname" style="text-transform:uppercase;padding-top:0.5rem; padding-bottom:0.5rem; border:2px solid #1ebba3;"/>
+
+            <input type="text" name="state" class="states order-alpha text-center" placeholder="Enter State" id="stateId" style="text-transform:uppercase;padding-top:0.5rem; padding-bottom:0.5rem; border:2px solid #1ebba3;" required>
+
+            <input type="text" name="city" class="cities order-alpha text-center" placeholder="Enter City" id="cityId" style="text-transform:uppercase;padding-top:0.5rem; padding-bottom:0.5rem; border:2px solid #1ebba3;" required>
+
+            <button class="btn btn-outline-light btn-lg" type="submit">FIND</button>
+        </form>
     </div>
-    <!-- Start Search Box -->
-    <div class="row justify-content-center searchbox">
-        <div class="col-12 col-md-10 col-lg-8 text-center">
-            <form method="get" action="{% url 'deep_diagnose:result' %}">
-<!--city-->
-    <!--<input type="text" name="city">-->
-    <!--state-->
-    <!--<input type="text" name="state">-->
-    <input type="hidden" name="country" id="countryId" value="IN"/>
-<select name="state" class="states order-alpha" id="stateId" style="text-transform:uppercase;">
-    <option value="">Select State</option>
-</select>
-<select name="city" class="cities order-alpha" id="cityId" style="text-transform:uppercase;">
-    <option value="">Select City</option>
-</select>
-    <button type="submit">Find</button>
-</form>
-        </div>
     <!--end of col-->
-    </div><!--  End Search Box -->
+</div><!--  End Search Box -->
 <!-- End Landing Page -->
 </div>
-<div id="about" class="offset">
-    <div class="col-12 text-center">
-        <h3 class="about-heading" style="padding-top:10rem;">About Us</h3>
-        <div class="heading-underline"></div>
-    </div>
 
-    <div class="row text-center">
-        <div class="col-12 narrow text-center">
-                <h1>This Is The About Us Page</h1>
-                <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <a class="btn btn-secondary btn-md" href="#" target="_blank">Get Started</a>
-        </div>
-    </div>
-</div>
-<!-- End About Section -->
 <!-- Start Features Section -->
 <div id="features" class="offset">
     <!-- Start Jumbotron -->
@@ -140,65 +127,65 @@
 </div>
 <!-- End Labs Section -->
 <!-- Start Clients Section -->
-<div id="clients" class="offset">
-    <!-- Start Jumbotron -->
-    <div class="jumbotron">
-        <div class="col-12 text-center">
-            <h3 class="heading">Clients</h3>
-            <div class="heading-underline"></div>
-        </div>
+<!--<div id="clients" class="offset">-->
+<!--    &lt;!&ndash; Start Jumbotron &ndash;&gt;-->
+<!--    <div class="jumbotron">-->
+<!--        <div class="col-12 text-center">-->
+<!--            <h3 class="heading">Clients</h3>-->
+<!--            <div class="heading-underline"></div>-->
+<!--        </div>-->
 
-        <div class="row">
-            <div class="col-md-6 clients">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="{% static 'deep_diagnose/img/client1.png'%}">
-                    </div>
-                    <div class="col-md-8">
-                        <blockquote>
-                            <i class="fas fa-quote-left"></i>
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                            <hr class="clients-hr">
-                            <cite>&#8212; Eric, Small Business Owner</cite>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
+<!--        <div class="row">-->
+<!--            <div class="col-md-6 clients">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-md-4">-->
+<!--                        <img src="{% static 'deep_diagnose/img/client1.png'%}">-->
+<!--                    </div>-->
+<!--                    <div class="col-md-8">-->
+<!--                        <blockquote>-->
+<!--                            <i class="fas fa-quote-left"></i>-->
+<!--                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.-->
+<!--                            <hr class="clients-hr">-->
+<!--                            <cite>&#8212; Eric, Small Business Owner</cite>-->
+<!--                        </blockquote>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
 
-             <div class="col-md-6 clients">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="{% static 'deep_diagnose/img/client2.png' %}">
-                    </div>
-                    <div class="col-md-8">
-                        <blockquote>
-                            <i class="fas fa-quote-left"></i>
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                            <hr class="clients-hr">
-                            <cite>&#8212; Rachel, Small Business Owner</cite>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="col-md-6 clients">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-md-4">-->
+<!--                        <img src="{% static 'deep_diagnose/img/client2.png' %}">-->
+<!--                    </div>-->
+<!--                    <div class="col-md-8">-->
+<!--                        <blockquote>-->
+<!--                            <i class="fas fa-quote-left"></i>-->
+<!--                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.-->
+<!--                            <hr class="clients-hr">-->
+<!--                            <cite>&#8212; Rachel, Small Business Owner</cite>-->
+<!--                        </blockquote>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
 
-        </div><!-- End Row -->
-    </div><!-- End Jumbotron -->
+<!--        </div>&lt;!&ndash; End Row &ndash;&gt;-->
+<!--    </div>&lt;!&ndash; End Jumbotron &ndash;&gt;-->
 
-    <div class="col-12 narrow text-center">
-        <p class="lead">Want to book lab tests in bulk?</p>
-        <p>Get customized health packages at best prices</p>
-        <a class="btn btn-secondary btn-md" href="#" target="_blank">Book Now</a>
-    </div>
+<!--    <div class="col-12 narrow text-center">-->
+<!--        <p class="lead">Want to book lab tests in bulk?</p>-->
+<!--        <p>Get customized health packages at best prices</p>-->
+<!--        <a class="btn btn-secondary btn-md" href="#" target="_blank">Book Now</a>-->
+<!--    </div>-->
 
-</div>
+<!--</div>-->
 <!-- End Clients Section -->
 <!-- Start Contact Section -->
 <div id="contact" class="offset">
-   <footer>
+    <footer>
         <div class="row justify-content-center">
             <div class="col-md-5 text-center">
                 <img src="{% static 'deep_diagnose/img/logo.jpg'%} ">
-                <p>At our core is a collection of design and development solutions that represents everything your business needs to compete in the modern marketplace.</p>
+                <h5 class="pt-3">UNCOMPROMISED QUALITY. RELIABLE RESULTS. ALWAYS.</h5>
                 <strong>Contact Info.</strong>
                 <p>(888)888-888-888<br>email@deepdiagnose.com</p>
                 <a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>

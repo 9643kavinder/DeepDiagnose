@@ -5,6 +5,7 @@ from . import views
 app_name = 'deep_diagnose'
 
 urlpatterns = [
+    # url('/', views.redirecting, name='redirecting'),
     url(r'^register/', views.register, name='register'),
     # /home/
     # for finding nearby companies
@@ -12,9 +13,6 @@ urlpatterns = [
 
 
     # /
-    # for list of all companies
-    url(r'^$', views.CompanyList.as_view(), name='company_list'),
-
     # /company/id(1,2..)
     # giving company details like tests and their price
     url(r'^company/(?P<pk>[0-9]+)/$', views.CompanyDetails.as_view(), name='company_detail'),
@@ -37,7 +35,7 @@ urlpatterns = [
 
     path('profile/', views.profile, name='profile'),
 
-    path('ordernow/', views.OrderNow.as_view(), name='ordernow'),
+    path('ordernow/(?P<pk>[0-9]+)', views.OrderNow, name='ordernow'),
 
     path('thankyou/', views.thankyou, name='thankyou'),
 
@@ -49,11 +47,24 @@ urlpatterns = [
 
     url(r'company/(?P<pk>[0-9]+)/delete/$', views.CompanyDelete.as_view(), name='company-delete'),
 
-    url(r'^companyregister/', views.create, name='companyregister'),
 
     url(r'^admin_test_list/$', views.AdminTestList.as_view(), name='admin_test_list'),
 
     url(r'^admin_company_list/$', views.AdminCompanyList.as_view(), name='admin_company_list'),
 
     path('adminhome/', views.adminhome, name='adminhome'),
+
+    url(r'^login-admin/$', views.loginAdminPanel, name='admin-login'),
+
+    path('adminprofile/', views.adminprofile, name='admin-profile'),
+
+    path('company/', views.CompanyList.as_view(), name='companylist'),
+
+    url(r'category(?P<pk>[0-9]+)/$', views.Category.as_view(), name='category'),
+
+    path('orderhistory/', views.OrderHistory, name='orderhistory'),
+    url(r'order/(?P<pk>[0-9]+)/cancel/$', views.CancelOrder.as_view(), name='cancel-order'),
+    url(r'order/(?P<pk>[0-9]+)/update/$', views.OrderUpdate.as_view(), name='update-order'),
+
+    url(r'^search',views.search_titles),#renders ajax_search.html
 ]

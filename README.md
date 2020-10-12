@@ -37,8 +37,8 @@ python manage.py runserver
 <!-- ![](/readme_ss/1.png) -->
 <!-- ![](/readme_ss/3.png) -->
 <p float="left">
-  <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/9.jpg" width="200" height="500"/>
-  <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/10.jpg" width="200" height="500"/>
- <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/11.jpg" width="200" height="500"/>
+  <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/9.jpg" width="200" height="400"/>
+  <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/10.jpg" width="200" height="400"/>
+ <img src="https://github.com/9643kavinder/DeepDiagnose/blob/master/readme_ss/11.jpg" width="200" height="400"/>
 </p>
 

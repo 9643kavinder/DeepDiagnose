@@ -35,8 +35,9 @@ python manage.py runserver
 ![](/readme_ss/3.png)
 </br>
 </br>
-<p align="center">
-  <img src="https://raw.githubusercontent.com/9643kavinder/DeepDiagnose/master/readme_ss/9.jpg" width="200" />
-  <img src="https://raw.githubusercontent.com/9643kavinder/DeepDiagnose/master/readme_ss/10.jpg" width="200" />
+<p float="left">
+  <img src="https://raw.githubusercontent.com/9643kavinder/DeepDiagnose/master/readme_ss/9.jpg" width="300" height="600"/>
+  <img src="https://raw.githubusercontent.com/9643kavinder/DeepDiagnose/master/readme_ss/10.jpg" width="300" height="600"/>
+ <img src="https://raw.githubusercontent.com/9643kavinder/DeepDiagnose/master/readme_ss/11.jpg" width="300" height="600"/>
 </p>
 
